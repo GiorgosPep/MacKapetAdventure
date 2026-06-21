@@ -1,6 +1,9 @@
-package character;
+package MacKapetAdventures.character;
 
-public abstract class Character {
+import MacKapetAdventures.enemies.bots.Enemy;
+import MacKapetAdventures.universe.IActions;
+
+public abstract class Character implements IActions {
 
     protected String name;
     protected int hp;
@@ -14,9 +17,9 @@ public abstract class Character {
         this.attack = attack;
     }
 
-    public void attack(Character target) {
-        target.hp -= attack;
-        System.out.println(name + " attacks " + target.name);
+    public void attack(Enemy enemy) {
+        enemy.hp -= attack;
+        System.out.println(name + " attacks " + enemy.name);
     }
 
     public boolean isAlive() {
